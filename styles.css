@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    background-color: #282828;
+    font-family: 'Sarala', sans-serif;
+}
+
+nav {
+    width: 100%;
+    margin: 0;
+    padding: 10px;  
+    background-color: #F0BD34;
+    text-align: center;
+}
+
+nav .title {
+    display: block;
+    font-size: 30px;
+    font-family: 'Roboto Slab', serif;
+    margin-top: 10px;
+}
+
+nav .nav_bt_container {
+    display: block;
+    margin: 20px;
+    font-size: 16px;
+}
+
+.nav_bt_container .nav_btn {
+    padding: 8px 12px;
+    color:black;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.nav_bt_container .nav_btn:hover {
+    border-bottom: 3px solid white;
+}
+
+.nav_bt_container #selected {
+    border-bottom: 3px solid white;
+    background-color: white;
+}
+
+.message_box {
+    background-color: #D8D8D8;
+    padding: 20px;
+    max-width: 1020px;
+    margin: 30px auto;
+}
+
+.message_tag {
+    display: block;
+}
+
+.message_box #message_tb {
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+}
+
+button {
+    display: inline-block;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: 'Sarala', sans-serif;
+    width: 100px;
+}
+
+.message_box #submit {
+    background-color: #02AB50;
+}
+
+.message_box #clear {
+    background-color: #DB4141;
+}
+
+.main_area .boardhead {
+    background-color: #D8D8D8;
+    max-width: 1020px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.boardhead #clearBoard {
+    float: right;
+    overflow: auto;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-top: 0;
+    background-color: #DB4141;
+}
+
+.board {
+    max-width: 1080px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10 auto;
+}
+  
+.message {
+    padding: 20px;
+    background-color: #F0BD34;
+    width: 300px;
+    min-height: 100px;
+    margin: 10px;
+    font-size: 16px;
+}
