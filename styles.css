@@ -1,3 +1,8 @@
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
 body {
     margin: 0;
     background-color: #282828;
@@ -30,15 +35,17 @@ nav .nav_bt_container {
     color:black;
     margin: 20px;
     text-decoration: none;
-}
+} 
 
 .nav_bt_container .nav_btn:hover {
-    border-bottom: 3px solid white;
+    padding: 5px 9px;
+    border: 3px solid white;
 }
 
 .nav_bt_container #selected {
-    border-bottom: 3px solid white;
+    border: 3px solid white;
     background-color: white;
+    padding: 5px 9px;
 }
 
 .message_box {
@@ -57,6 +64,8 @@ nav .nav_bt_container {
     width: 100%;
     height: 30px;
     margin-top: 10px;
+    font-size: 16px;
+    font-family: 'Sarala', sans-serif;
 }
 
 button {
@@ -72,8 +81,12 @@ button {
     background-color: #02AB50;
 }
 
+.message_box #submit_warning {
+    background-color: #FF2323;
+}
+
 .message_box #clear {
-    background-color: #DB4141;
+    background-color: #6D7278;
 }
 
 .main_area .boardhead {
@@ -93,7 +106,7 @@ button {
     white-space: nowrap;
     margin-left: auto;
     margin-top: 0;
-    background-color: #DB4141;
+    background-color: #6D7278;
 }
 
 .board {
@@ -110,4 +123,18 @@ button {
     min-height: 100px;
     margin: 10px;
     font-size: 16px;
+    animation-name: appear;
+    animation-duration: 1s;
+}
+
+.board #warning {
+    background-color: #FF2323;
+}
+
+.about_box {
+    background-color: #D8D8D8;
+    padding: 20px;
+    max-width: 1020px;
+    margin: 30px auto;
+    text-align: left;
 }
