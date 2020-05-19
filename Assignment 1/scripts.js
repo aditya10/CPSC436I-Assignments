@@ -10,13 +10,13 @@ predefinedText = '{"texts":[{"message": "Hello there!","isWarning": false},{"mes
 function add(message, isWarning) {
     let board = document.getElementById("message_board")
     if (message !== undefined && message !== "") {
-        var newDiv = document.createElement('div');
-        newDiv.className = 'message';
+        var newListItem = document.createElement('li');
+        newListItem.className = 'message';
         if(isWarning) {
-            newDiv.id = 'warning';
+            newListItem.id = 'warning';
         }
-        newDiv.append(message);
-        board.prepend(newDiv);
+        newListItem.append(message);
+        board.prepend(newListItem);
         clearBox();
     }
 }
@@ -75,8 +75,8 @@ function clearBox() {
 function clearBoard() {
     let messages = document.querySelectorAll('.message');
     let board = document.getElementById("message_board");
-    messages.forEach(div => {
-        board.removeChild(div);
+    messages.forEach(li => {
+        board.removeChild(li);
     });
     clearLocalStorage();
 }
