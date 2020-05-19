@@ -10,3 +10,5 @@ Some cool stuff (beyond requirements):
 * Messages don't go away when you refresh the page
 * Some CSS animations when you add new messages
 * Fully responsive, using flexbox
+
+**Resources used:** W3Schools for some information about CSS styling and localStorage
