@@ -1,12 +1,5 @@
-# CPSC436I-Assignment1
+# CPSC436I-Assignments
 
 **Name:** Aditya Chinchure (u1a1b)
 
-A **Message Board** (like twitter) where a user can enter a message and post it on the board.
-
-Some cool stuff (beyond requirements):
-
-* Messages have types: for example, you can make make warning messages that display in red!
-* Messages don't go away when you refresh the page
-* Some CSS animations when you add new messages
-* Fully responsive, using flexbox
+See individual assignment folders or branches for details!
