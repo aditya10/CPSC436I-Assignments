@@ -147,7 +147,7 @@
     max-width: 1080px;
     display: flex;
     flex-wrap: wrap;
-    margin: 10 auto;
+    margin: 0 auto;
     padding: 0;
   }
   
