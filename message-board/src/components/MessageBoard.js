@@ -12,13 +12,12 @@ class MessageBoard extends React.Component {
     }
 
     openMessage = (id) => {
-        console.log(id);
         let m = this.getMessageFromId(this.props.messages, id);
         this.setState({message: m});
     }
 
     closeMessage = () => {
-        this.setState({selected: false, message: null});
+        this.setState({message: null});
     }
 
     render() {
