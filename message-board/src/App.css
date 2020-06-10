@@ -82,7 +82,7 @@
   }
   
   .message_box #submit_warning {
-    background-color: #FF2323;
+    background-color: rgb(240, 60, 60);
   }
   
   .message_box #clear {
@@ -161,10 +161,20 @@
     animation-name: appear;
     animation-duration: 1s;
     list-style-type: none;
+    position: relative;
+  }
+
+  .message-date {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 10px;
   }
   
   .board .warning {
-    background-color: #FF2323;
+    background-color: rgb(240, 60, 60);
   }
   
   .about_box {

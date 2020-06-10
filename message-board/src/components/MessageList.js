@@ -1,18 +1,13 @@
 import React from 'react';
+import Message from './Message';
 
 class MessageList extends React.Component {
 
     render() {
-        return (<ul className="board" id="message_board">
-            {this.props.messages.map(m => {
-                return(<li 
-                className={`message ${m.isWarning? "warning" : ""}`} 
-                key={m.id}
-                onClick={() => this.props.openMessage(m.id)}>
-                {m.text}</li>)
-                })
-            }
-        </ul>)
+        return (<div className="board" id="message_board">
+                {this.props.messages.map(m => 
+                    {return(<Message key={m.id} message={m} openMessage={this.props.openMessage} />)})}
+                </div>)
     }
 
 }
