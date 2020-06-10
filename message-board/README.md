@@ -1,13 +1,8 @@
-# Assignment 2
+# Assignment 3
 
 **Name:** Aditya Chinchure (u1a1b)
 
 A **Message Board** (like twitter) where a user can enter a message and post it on the board.
-
-Some cool stuff (beyond requirements):
-
-* Messages have types: for example, you can make make warning messages that display in red
-* You can click on a message to view it in a popup modal, where you can choose to delete it
 
 ----
 
