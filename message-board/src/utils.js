@@ -2,7 +2,7 @@ export function getListMinus(id, messageList) {
     let localList = [];
     var m;
     for(m of messageList) {
-        if (m.id !== id) {
+        if (m._id !== id) {
             localList.push(m);
         }
     }

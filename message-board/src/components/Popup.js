@@ -5,7 +5,7 @@ import { deleteMessage } from '../actions';
 class Popup extends React.Component {
 
     deleteAndClose = () => {
-        this.props.deleteMessage(this.props.message.id);
+        this.props.deleteMessage(this.props.message._id);
         this.props.close();
     }
 

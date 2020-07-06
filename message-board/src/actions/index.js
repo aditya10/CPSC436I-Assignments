@@ -37,6 +37,21 @@ export function addMessage(text, warningBool) {
     }
 }
 
+export function deleteMessage(id) {
+    return (dispatch) => {
+        return fetch('http://localhost:3001/messages/'+id, {
+            method: 'DELETE'
+        })
+        .then(res => res.status)
+        .then(status => {
+            if (status === 204) {
+                dispatch(deleteItem(id));
+            }
+        })
+        .catch(err => console.log(err));
+    }
+}
+
 export const addAllMessages = (messages) => {
     return {
         type: 'ADD_ALL_MESSAGES',
@@ -57,7 +72,7 @@ export const clearBoard = () => {
     };
 };
 
-export const deleteMessage = (id) => {
+export const deleteItem = (id) => {
     return {
         type: 'DELETE_MESSAGE',
         messageid: id
