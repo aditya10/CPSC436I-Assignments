@@ -1,13 +1,18 @@
 import {combineReducers} from 'redux';
 
 const initMessageList = [
-    {id: 1, text: "hello1", isWarning: false, date: "06-09-2020"},
-    {id: 2, text: "hello2", isWarning: true, date: "06-09-2020"},
-    {id: 3, text: "hello3", isWarning: false, date: "06-09-2020"}
+    {id: 1, text: "NO", isWarning: false, date: "06-09-2020"},
+    {id: 2, text: "NO", isWarning: true, date: "06-09-2020"},
+    {id: 3, text: "NO", isWarning: false, date: "06-09-2020"}
 ]
 
 const messageReducer = (messageList = initMessageList, action) => {
-    if (action.type === 'SUBMIT_MESSAGE') {
+    if (action.type === 'ADD_ALL_MESSAGES') {
+        console.log("yes");
+        console.log(action.payload);
+        let newMessageList = action.payload;
+        return newMessageList;
+    } else if (action.type === 'SUBMIT_MESSAGE') {
         let newMessage = {id: getNewId(messageList), text: action.payload, isWarning: false, date: getDate()} 
         return [...messageList, newMessage];
     } else if (action.type === 'SUBMIT_WARNING') {

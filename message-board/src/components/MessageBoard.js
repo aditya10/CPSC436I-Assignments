@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearBoard } from '../actions';
+import { clearBoard, loadMessages } from '../actions';
 import MessageList from './MessageList';
 import Popup from './Popup';
 
@@ -18,6 +18,11 @@ class MessageBoard extends React.Component {
 
     closeMessage = () => {
         this.setState({message: null});
+    }
+
+    componentDidMount = () => {
+        // Get Data from API and load it into Redux
+        this.props.loadMessages()
     }
 
     render() {
@@ -51,4 +56,4 @@ const mapStateToProps = (state) => {
     return {messages: state.messages};
 }
 
-export default connect(mapStateToProps, { clearBoard })(MessageBoard);
+export default connect(mapStateToProps, { clearBoard, loadMessages })(MessageBoard);
