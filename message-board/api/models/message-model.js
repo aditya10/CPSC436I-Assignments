@@ -3,11 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const messageSchema = new Schema({
-    id: {type: Number, unique: true},
     text: {type: String},
     isWarning: {type: Boolean},
     date: {type: String}
-});
+}, {versionKey: false, autoIndex: true});
 
 const Message = mongoose.model('Message', messageSchema);
 

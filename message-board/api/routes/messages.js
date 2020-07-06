@@ -9,21 +9,19 @@ router.get('/', function(req, res, next) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.post('/add', (req, res) => {
-  const id = Number(req.body.id);
+router.post('/', (req, res) => {
   const text = req.body.text;
   const isWarning = Boolean(req.body.isWarning);
   const date = req.body.date;
 
   const newMessage = new Message({
-    id,
     text,
     isWarning,
     date,
   });
 
   newMessage.save()
-  .then(() => res.json('Message added'))
+  .then(val => res.json(val))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 

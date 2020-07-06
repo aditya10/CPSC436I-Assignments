@@ -44,7 +44,7 @@ class MessageBoard extends React.Component {
     getMessageFromId = (messageList, id) => {
         var m;
         for (m of messageList) {
-            if (m.id === id) {
+            if (m._id === id) {
                 return m;
             } 
         }
