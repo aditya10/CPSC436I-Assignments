@@ -33,13 +33,13 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   Message.deleteOne({_id: req.params.id})
-    .then(message => res.status(204).json(message))
+    .then(() => res.status(204).json("Successfully deleted message"))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.post('/clear', (req, res) => {
+router.delete('/', (req, res) => {
   Message.deleteMany()
-  .then(message => res.json(message))
+  .then(() => res.status(204).json("Successfully deleted all messages"))
   .catch(err => res.status(400).json('Error: ' + err));
 })
 

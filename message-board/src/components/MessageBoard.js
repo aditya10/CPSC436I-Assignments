@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearBoard, loadMessages } from '../actions';
+import { deleteAllMessages, loadMessages } from '../actions';
 import MessageList from './MessageList';
 import Popup from './Popup';
 
@@ -34,7 +34,7 @@ class MessageBoard extends React.Component {
         return (<div className="main_area">
         <div className="boardhead">
             <span className="boardheader_text">Messages</span>
-            <button id="clearBoard" onClick={() => this.props.clearBoard()}>Clear Board</button>
+            <button id="clearBoard" onClick={() => this.props.deleteAllMessages()}>Clear Board</button>
         </div>
         <MessageList messages={this.props.messages} openMessage={this.openMessage}/>
         {popup}
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
     return {messages: state.messages};
 }
 
-export default connect(mapStateToProps, { clearBoard, loadMessages })(MessageBoard);
+export default connect(mapStateToProps, { deleteAllMessages, loadMessages })(MessageBoard);

@@ -52,6 +52,21 @@ export function deleteMessage(id) {
     }
 }
 
+export function deleteAllMessages() {
+    return (dispatch) => {
+        return fetch('http://localhost:3001/messages/', {
+            method: 'DELETE'
+        })
+        .then(res => res.status)
+        .then(status => {
+            if (status === 204) {
+                dispatch(clearBoard());
+            }
+        })
+        .catch(err => console.log(err));
+    }
+}
+
 export const addAllMessages = (messages) => {
     return {
         type: 'ADD_ALL_MESSAGES',

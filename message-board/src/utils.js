@@ -16,14 +16,3 @@ export function getDate() {
     let yyyy = now.getFullYear();
     return (mm + '-' + dd + '-' + yyyy);
 }
-
-export function getNewId(messageList) {
-    let currMax = 0;
-    var m;
-    for(m of messageList) {
-        if (m.id > currMax) {
-            currMax = m.id
-        }
-    }
-    return currMax+1;
-}
