@@ -2,6 +2,7 @@ import {getDate} from '../utils';
 
 export function loadMessages() {
     return (dispatch) => {
+        dispatch(startSpinner());
         return fetch('http://localhost:3001/messages', {
             method: 'GET'
         })
@@ -10,15 +11,20 @@ export function loadMessages() {
             const messages = JSON.parse(res);
             if (messages) {
                 dispatch(addAllMessages(messages));
+                dispatch(endSpinner());
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            dispatch(endSpinner());
+        });
     }
 }
 
 export function addMessage(text, warningBool) {
     let newMessage = {text: text, isWarning: warningBool, date: getDate()}
     return (dispatch) => {
+        dispatch(startSpinner());
         return fetch('http://localhost:3001/messages', {
             method: 'POST',
             headers: {
@@ -31,15 +37,20 @@ export function addMessage(text, warningBool) {
             const message = JSON.parse(res);
             if (message) {
                 dispatch(submit(message));
+                dispatch(endSpinner());
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            dispatch(endSpinner());
+        });
     }
 }
 
 export function updateMessage(id, text) {
     let updatedMessage = {text: text}
     return (dispatch) => {
+        dispatch(startSpinner());
         return fetch('http://localhost:3001/messages/'+id, {
             method: 'POST',
             headers: {
@@ -52,14 +63,19 @@ export function updateMessage(id, text) {
             const message = JSON.parse(res);
             if (message) {
                 dispatch(updateItem(id, text));
+                dispatch(endSpinner());
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            dispatch(endSpinner());
+        });
     }
 }
 
 export function deleteMessage(id) {
     return (dispatch) => {
+        dispatch(startSpinner());
         return fetch('http://localhost:3001/messages/'+id, {
             method: 'DELETE'
         })
@@ -67,14 +83,19 @@ export function deleteMessage(id) {
         .then(status => {
             if (status === 204) {
                 dispatch(deleteItem(id));
+                dispatch(endSpinner());
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            dispatch(endSpinner());
+        });
     }
 }
 
 export function deleteAllMessages() {
     return (dispatch) => {
+        dispatch(startSpinner());
         return fetch('http://localhost:3001/messages/', {
             method: 'DELETE'
         })
@@ -82,9 +103,13 @@ export function deleteAllMessages() {
         .then(status => {
             if (status === 204) {
                 dispatch(clearBoard());
+                dispatch(endSpinner());
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            dispatch(endSpinner());
+        });
     }
 }
 
@@ -120,5 +145,17 @@ export const updateItem = (id, text) => {
         type: 'UPDATE_MESSAGE',
         messageid: id,
         payload: text
+    }
+}
+
+export const startSpinner = () => {
+    return {
+        type: 'START'
+    }
+}
+
+export const endSpinner = () => {
+    return {
+        type: 'END'
     }
 }

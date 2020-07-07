@@ -18,6 +18,16 @@ const messageReducer = (messageList = [], action) => {
     return messageList;
 }
 
+const spinnerReducer = (initial = false, action) => {
+    if (action.type === 'START') {
+        return true;
+    } else if (action.type === 'END') {
+        return false;
+    }
+    return initial;
+}
+
 export default combineReducers({
-    messages: messageReducer
+    messages: messageReducer,
+    spinner: spinnerReducer
 });

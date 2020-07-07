@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import { deleteAllMessages, loadMessages } from '../actions';
 import MessageList from './MessageList';
 import Popup from './Popup';
+import spin from '../spinner.gif';
 
 class MessageBoard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {message: null};
+        this.state = {
+            message: null
+        };
     }
 
     openMessage = (id) => {
@@ -30,6 +33,10 @@ class MessageBoard extends React.Component {
         if (this.state.message !== null) {
             popup = <Popup message={this.state.message} close={this.closeMessage}/>;
         }
+        let spinner = null;
+        if (this.props.spinner === true) {
+            spinner = <img className="spinner" alt="spinner" src={spin}/>
+        }
 
         return (<div className="main_area">
         <div className="boardhead">
@@ -38,6 +45,7 @@ class MessageBoard extends React.Component {
         </div>
         <MessageList messages={this.props.messages} openMessage={this.openMessage}/>
         {popup}
+        {spinner}
     </div>);
     }
 
@@ -53,7 +61,9 @@ class MessageBoard extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {messages: state.messages};
+    return {
+        messages: state.messages,
+        spinner: state.spinner};
 }
 
 export default connect(mapStateToProps, { deleteAllMessages, loadMessages })(MessageBoard);
