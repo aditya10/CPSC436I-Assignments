@@ -31,6 +31,12 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.post('/:id', (req, res) => {
+  Message.findByIdAndUpdate({_id: req.params.id}, {"text": req.body.text})
+    .then(message => res.json(message))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.delete('/:id', (req, res) => {
   Message.deleteOne({_id: req.params.id})
     .then(() => res.status(204).json("Successfully deleted message"))

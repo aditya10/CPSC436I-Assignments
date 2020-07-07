@@ -1,11 +1,7 @@
 import {combineReducers} from 'redux';
-import {getListMinus} from '../utils';
+import {getListMinus, updateList} from '../utils';
 
-const initMessageList = [
-    {_id: "default", text: "default", isWarning: false, date: "06-30-2020"},
-]
-
-const messageReducer = (messageList = initMessageList, action) => {
+const messageReducer = (messageList = [], action) => {
     if (action.type === 'ADD_ALL_MESSAGES') {
         let newMessageList = action.payload;
         return newMessageList;
@@ -16,6 +12,8 @@ const messageReducer = (messageList = initMessageList, action) => {
         return [];
     } else if (action.type === 'DELETE_MESSAGE') {
         return getListMinus(action.messageid, messageList);
+    } else if (action.type === 'UPDATE_MESSAGE') {
+        return updateList(messageList, action.messageid, action.payload)
     }
     return messageList;
 }

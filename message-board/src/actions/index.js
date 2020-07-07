@@ -37,6 +37,27 @@ export function addMessage(text, warningBool) {
     }
 }
 
+export function updateMessage(id, text) {
+    let updatedMessage = {text: text}
+    return (dispatch) => {
+        return fetch('http://localhost:3001/messages/'+id, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedMessage)
+        })
+        .then(res => res.text())
+        .then(res => {
+            const message = JSON.parse(res);
+            if (message) {
+                dispatch(updateItem(id, text));
+            }
+        })
+        .catch(err => console.log(err));
+    }
+}
+
 export function deleteMessage(id) {
     return (dispatch) => {
         return fetch('http://localhost:3001/messages/'+id, {
@@ -93,3 +114,11 @@ export const deleteItem = (id) => {
         messageid: id
     };
 };
+
+export const updateItem = (id, text) => {
+    return {
+        type: 'UPDATE_MESSAGE',
+        messageid: id,
+        payload: text
+    }
+}
