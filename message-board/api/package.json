@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cd .. && yarn install && yarn run build && cd api && node ./bin/www"
+    "start": "cd .. && npm install && npm run build && cd api && node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
