@@ -6,6 +6,6 @@
     },
     "scripts": {
         "start": "cd ./message-board/api && npm start",
-        "heroku-postbuild": "cd ./message-board/api && node ./bin/www"
+        "heroku-postbuild": "cd ./message-board/api && npm install && node ./bin/www"
     }
 }
