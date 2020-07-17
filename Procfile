@@ -1,1 +1,0 @@
-web: cd ./message-board/api && npm start
