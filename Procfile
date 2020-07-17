@@ -1,1 +1,0 @@
-worker: cd ./message-board/api && npm start

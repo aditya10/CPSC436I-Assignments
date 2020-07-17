@@ -5,6 +5,7 @@
         "node": "12.x"
     },
     "scripts": {
-        "start": "cd ./message-board/api && npm start"
+        "start": "cd ./message-board/api && npm start",
+        "heroku-postbuild": "cd ./message-board/api && node ./bin/www"
     }
 }
