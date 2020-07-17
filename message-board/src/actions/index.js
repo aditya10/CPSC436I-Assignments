@@ -2,7 +2,7 @@ import {getDate} from '../utils';
 
 export function loadMessages() {
     return (dispatch) => {
-        return fetch('http://localhost:3001/messages', {
+        return fetch('/messages', {
             method: 'GET'
         })
         .then(res => res.text())
@@ -19,7 +19,7 @@ export function loadMessages() {
 export function addMessage(text, warningBool) {
     let newMessage = {text: text, isWarning: warningBool, date: getDate()}
     return (dispatch) => {
-        return fetch('http://localhost:3001/messages', {
+        return fetch('/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export function addMessage(text, warningBool) {
 export function updateMessage(id, text) {
     let updatedMessage = {text: text}
     return (dispatch) => {
-        return fetch('http://localhost:3001/messages/'+id, {
+        return fetch('/messages/'+id, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ export function updateMessage(id, text) {
 
 export function deleteMessage(id) {
     return (dispatch) => {
-        return fetch('http://localhost:3001/messages/'+id, {
+        return fetch('/messages/'+id, {
             method: 'DELETE'
         })
         .then(res => res.status)
@@ -75,7 +75,7 @@ export function deleteMessage(id) {
 
 export function deleteAllMessages() {
     return (dispatch) => {
-        return fetch('http://localhost:3001/messages/', {
+        return fetch('/messages/', {
             method: 'DELETE'
         })
         .then(res => res.status)
